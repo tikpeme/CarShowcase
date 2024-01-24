@@ -28,18 +28,20 @@ const SearchManufacturer = ({
             .replace(/\s+/g, "")
             .includes(query.toLowerCase().replace(/\s+/g, ""))
     );
+    console.log("Manufacture value is " + manufacturer);
+
     setFilteredManufacturers(filteredManufacturerArray);
     return () => {
       setFilteredManufacturers([]);
     };
-  }, [query]);
+  }, [query, manufacturer]);
 
-  console.log(filteredManufacturers);
-  console.log(query);
+  //console.log(filteredManufacturers);
+  console.log("Current query is " + query);
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={manufacturer} onChange={setManufacturer}>
+      <Combobox value={manufacturer} onChange={setManufacturer} nullable>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image src="/car-logo.svg" width={20} height={20} alt="Car logo" />
@@ -48,7 +50,10 @@ const SearchManufacturer = ({
             className="search-manufacturer__input"
             placeholder="Volkswagen"
             displayValue={(manufacturer: string) => manufacturer}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setManufacturer(e.target.value);
+            }}
           />
           <Transition
             as={Fragment}
