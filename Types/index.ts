@@ -45,12 +45,16 @@ export interface OptionProps {
 }
 export interface CustomFilterProps {
   title: string;
+  setFilter:
+    | React.Dispatch<React.SetStateAction<string>>
+    | React.Dispatch<React.SetStateAction<number>>;
   options: OptionProps[];
 }
 
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  setLimit: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface setSearchProps {

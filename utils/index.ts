@@ -2,7 +2,7 @@ import { CarProps, FilterProps } from "@/Types";
 import { type } from "os";
 
 export async function fetchCars(filters: FilterProps) {
-  //console.log(filters);
+  ////console.log(filters);
 
   const { manufacturer, year, fuel, limit, model } = filters;
 
@@ -18,7 +18,7 @@ export async function fetchCars(filters: FilterProps) {
     );
 
     const result = await response.json();
-    //console.log("this is the result " + result);
+    ////console.log("this is the result " + result);
     return result;
   } catch (error) {
     console.error(error);
@@ -58,7 +58,7 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
 export const UpdateSearchParams = (type: string, value: string) => {
   const searchParams = new URLSearchParams(window.location.search);
 
-  console.log(window.location.search);
+  //console.log(window.location.search);
 
   searchParams.set(type, value);
 

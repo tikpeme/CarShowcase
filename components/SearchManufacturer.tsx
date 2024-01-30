@@ -6,8 +6,8 @@ import Image from "next/image";
 import { manufacturers } from "@/constants";
 
 const SearchManufacturer = ({
-  manufacturer,
-  setManufacturer,
+  selected,
+  setSelected,
 }: SearchManufacturerProps) => {
   const [query, setQuery] = useState("");
   const [filteredManufacturers, setFilteredManufacturers] = useState<string[]>(
@@ -28,23 +28,29 @@ const SearchManufacturer = ({
             .replace(/\s+/g, "")
             .includes(query.toLowerCase().replace(/\s+/g, ""))
     );
-    console.log("Manufacture value is " + manufacturer);
+    //console.log("Manufacture value is " + selected);
 
     setFilteredManufacturers(filteredManufacturerArray);
     return () => {
       setFilteredManufacturers([]);
     };
-  }, [query, manufacturer]);
+  }, [query, selected]);
 
-  //console.log(filteredManufacturers);
-  console.log("Current query is " + query);
+  ////console.log(filteredManufacturers);
+  //console.log("Current query is " + query);
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={manufacturer} onChange={setManufacturer} nullable>
+      <Combobox value={selected} onChange={setSelected} nullable>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
-            <Image src="/car-logo.svg" width={20} height={20} alt="Car logo" />
+            <Image
+              src="/car-logo.svg"
+              width={20}
+              height={20}
+              alt="Car logo"
+              className="ml-4"
+            />
           </Combobox.Button>
           <Combobox.Input
             className="search-manufacturer__input"
@@ -52,7 +58,7 @@ const SearchManufacturer = ({
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => {
               setQuery(e.target.value);
-              setManufacturer(e.target.value);
+              setSelected(e.target.value);
             }}
           />
           <Transition
