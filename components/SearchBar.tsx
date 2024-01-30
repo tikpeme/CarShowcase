@@ -17,7 +17,13 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
     </button>
   );
 };
-const SearchBar = ({ setManufacturer, setModel }) => {
+const SearchBar = ({
+  setManufacturer,
+  setModel,
+}: {
+  setManufacturer: React.Dispatch<React.SetStateAction<string>>;
+  setModel: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   const [searchManufacturer, setSearchManufacturer] = useState("");
   const [searchModel, setSearchModel] = useState("");
   ////console.log("Current searchManufacturer is " + searchManufacturer);

@@ -44,7 +44,7 @@ export default function Home() {
   }, [manufacturer, model, fuel, year, limit]);
 
   ////console.log(allCars.length < 1);
-  // //console.log(allCars);
+  console.log(allCars);
   console.log(limit);
 
   return (
