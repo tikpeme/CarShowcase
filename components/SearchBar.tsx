@@ -50,7 +50,7 @@ const SearchBar = ({
       </div>
       <div className="searchbar__item self-start">
         <Image
-          src="/Model-icon.png"
+          src="/model-icon.png"
           alt="car searchModel"
           width={25}
           height={25}
